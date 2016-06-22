@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :state, length: {minimum:2, maximum:2}
   validates :email, uniqueness: true, email: true
 
+  has_many :events
 
   before_save :upcase_state
 
