@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
 
   before_save :upcase_state
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 
   private
 
