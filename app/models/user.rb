@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :attends
   has_many :attended_events, through: :attends, class_name: 'Event'
+  has_many :comments
 
   before_save :upcase_state
 
