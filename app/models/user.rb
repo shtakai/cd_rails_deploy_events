@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, email: true
 
   has_many :events
+  has_many :attends
+  has_many :attended_events, through: :attends, class_name: 'Event'
 
   before_save :upcase_state
 
