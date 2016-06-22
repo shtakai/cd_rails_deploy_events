@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :host, class_name: 'User', foreign_key: :user_id
   has_many :attends
-  has_many :attended_users, through: :attends, class_name: 'User'
+  has_many :users, through: :attends, class_name: 'User', foreign_key: :event_id
   has_many :comments
 
   private
