@@ -1,0 +1,23 @@
+<div>
+  <p>
+  Here are some of the events at your state.
+  </p>
+
+  <%= render partial: 'event_list', locals: {events: @instate_events} %>
+</div>
+<div>
+
+  <p>
+  Here are some of the events on other states.
+  </p>
+  <%= render partial: 'event_list', locals: {events: @outstate_events} %>
+</div>
+
+<div>
+  <p>
+    Add Event
+  </p>
+
+  <%= render partial: 'form', locals: {event: @new_event, title: 'Add Event'} %>
+
+</div>

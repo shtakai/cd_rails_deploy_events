@@ -1,0 +1,41 @@
+
+<div>
+  <p>
+    Edit Event
+  </p>
+
+
+
+  <%= form_tag "/events/#{@event.id}", class: 'form_horizontal' do  %>
+  <input type="hidden" name="_method" value="PATCH">
+  <div class="form-group">
+    <%= label_tag :name, 'Name', class: 'col-md-3 control-label'%>
+    <div class="col-md-9">
+      <%= text_field_tag 'event[name]', @event.name, class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label :date, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+
+      <%= text_field_tag 'event[date]', @event.date, data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: 'YYYY/MM/DD' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label :location, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+      <%= text_field_tag 'event[location]', @event.location, class: 'form-control', value: @event.location %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label :state, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+      <%= text_field_tag 'event[state]', @event.state, class: 'form-control', value: @event.state %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'update', class: 'btn btn-deult' %>
+  </div>
+
+<% end %>
+</div>

@@ -1,0 +1,46 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Host</th>
+      <th>Action / Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= event.date %></td>
+      <td><%= event.location %></td>
+      <td><%= event.host.first_name %></td>
+      <td>
+        <% if event.host.id == session[:user_id] %>
+          <form action="/events/<%= event.id %>" method="GET">
+            <input type="submit" value="Edit">
+          </form>
+          <form action="/events/<%= event.id %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+          </form>
+        <% elsif event.users.pluck(:id).include?(session[:user_id])  %>
+          Joining
+          <form action="/attends/<%= Attend.user_event(session[:user_id], event.id).last.id %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Cancel">
+          </form>
+
+        <% else %>
+          <%= button_to 'Join', attends_path(event_id: event.id), method: 'POST' %>
+        <% end %>
+
+
+        <%= event.id %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
