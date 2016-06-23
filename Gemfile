@@ -43,7 +43,7 @@ group :development, :test do
   gem 'minitest'
   gem 'teaspoon'
   gem 'awesome_print'
-  gem 'fuubar'
+  #gem 'fuubar'
 end
 
 group :development do
