@@ -29,6 +29,22 @@ class EventsController <  ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find_by id: params[:id]
+  end
+
+  def update
+    @event = Event.find_by id: params[:id]
+    if @event.update(event_params)
+      flash[:notice] = "Event #{@event.name} updated"
+      redirect_to '/events'
+    else
+      fail
+      flash[:alert] = "Event #{@event.name} update failed"
+      render 'events/edit'
+    end
+  end
+
   private
 
   def event_params

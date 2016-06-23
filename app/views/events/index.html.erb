@@ -18,36 +18,6 @@
     Add Event
   </p>
 
-  <%= form_for @new_event, class: 'form_horizontal' do |f| %>
-    <div class="form-group">
-      <%= f.label :name, class: 'col-md-3 control-label' %>
-      <div class="col-md-9">
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :date, class: 'col-md-3 control-label' %>
-      <div class="col-md-9">
-
-        <%= f.text_field :date, data: { :date_format => 'YYYY/MM/DD' }, :class => 'form-control datetimepicker', placeholder: 'YYYY/MM/DD' %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :location, class: 'col-md-3 control-label' %>
-      <div class="col-md-9">
-        <%= f.text_field :location, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :state, class: 'col-md-3 control-label' %>
-      <div class="col-md-9">
-        <%= f.text_field :state, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.submit 'Add Event', class: 'btn btn-default' %>
-    </div>
-
-  <% end %>
+  <%= render partial: 'form', locals: {event: @new_event, title: 'Add Event'} %>
 
 </div>
