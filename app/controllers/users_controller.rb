@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      render text: "created user" and return
+      flash[:notice] = "created user"
+      redirect_to '/'
     else
+      @new_user = User.new
       render text: "failed #{@user.errors}"
     end
   end

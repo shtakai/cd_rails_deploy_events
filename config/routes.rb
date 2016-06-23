@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   post 'users' => 'users#create'
+
+  get 'events' => 'events#index'
+  post 'attends' => 'attends#create'
+  delete 'attends/:id' => 'attends#destroy'
+  get 'events/:id' => 'events#edit'
+  delete 'events/:id' => 'events#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

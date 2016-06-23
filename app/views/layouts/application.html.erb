@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Events</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
-    <% if flash[:alert] %>
-      <div class="alert alert-error">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-  </div>
-  <div class="container">
-    <% if flash[:notice] %>
-      <div class="alert alert-error">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-  </div>
-  <div class="container">
-    <%= yield %>
-  </div>
+  <head>
+    <title>Events</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-</body>
+    <div class="contaner">
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Welcome <%= session[:user_name] %></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+      <div class="container">
+        <% if flash[:alert] %>
+          <div class="alert alert-error">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+      </div>
+      <div class="container">
+        <% if flash[:notice] %>
+          <div class="alert alert-error">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+
+
+    </div>
+  </body>
 </html>
