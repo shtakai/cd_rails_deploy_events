@@ -1,10 +1,15 @@
-<p>
+<div>
+  <p>
   Here are some of the events at your state.
-</p>
+  </p>
 
-<%= render partial: 'event_list', locals: {events: @instate_events} %>
+  <%= render partial: 'event_list', locals: {events: @instate_events} %>
+</div>
+<div>
 
-<p>
+  <p>
   Here are some of the events on other states.
-</p>
-<%= render partial: 'event_list', locals: {events: @outstate_events} %>
+  </p>
+  <%= render partial: 'event_list', locals: {events: @outstate_events} %>
+</div>
+

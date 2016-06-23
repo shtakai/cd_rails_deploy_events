@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def get_user
     User.find_by id: session[:user_id]
   end
+
 end

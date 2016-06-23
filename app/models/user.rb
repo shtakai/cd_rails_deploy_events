@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   validates :state, length: {minimum:2, maximum:2}
   validates :email, uniqueness: true, email: true
 
-  has_many :hosted_events, class_name: 'Event', foreign_key: :user_id
-  has_many :attends
+  has_many :hosted_events, class_name: 'Event', foreign_key: :user_id, dependent: :destroy
+  has_many :attends, dependent: :destroy
   has_many :events, through: :attends, class_name: 'Event', foreign_key: :event_id
   has_many :comments
 
