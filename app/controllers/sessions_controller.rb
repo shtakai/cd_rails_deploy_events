@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def index
     @user = User.new
+    @new_user = User.new
   end
 
   def create
@@ -11,6 +12,7 @@ class SessionsController < ApplicationController
       render text: "login #{user.full_name}"
     else
       @user = User.new
+      @new_user = User.new
       flash[:alert] = 'Login Failed. pls check your account info.'
       render 'sessions/index'
     end
