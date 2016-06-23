@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'events' => 'events#index'
   post 'attends' => 'attends#create'
   delete 'attends/:id' => 'attends#destroy'
+  post 'events' => 'events#create'
   get 'events/:id' => 'events#edit'
   delete 'events/:id' => 'events#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
