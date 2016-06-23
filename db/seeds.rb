@@ -7,14 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 50.times{
+  pw = Faker::Internet.password
   u = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     location: Faker::Address.city,
     state: Faker::Address.state_abbr,
-    password: 'yakisoba',
-    password_confirmation: 'yakisoba'
+    password: pw,
+    password_confirmation: pw
   )
   5.times{
     e = Event.create(
